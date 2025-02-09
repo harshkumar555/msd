@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARSH</title>
+    
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAgVBMVEUCAgIBAQH9/f0AAAD///8CAwDq6erv7+94eHgqKiqgoKAlJSVsbGzQ0NCSkpK8vLz29fZERESrq6uIiIjY2Ni1tbWVlZVWVlYdHR0LCwtAQEBxcXHs7OxPT08UFBTJyclgYGB+fn41NTVkZGTd3d3Dw8OdnZ1JSUk4ODgYGBimpqY5xmGJAAAMHUlEQVR4nO2d60LiOhCAG1JARQVBFC8oIKt7fP8HPEmvSWaSTNsAhc38cG06t6+5to3dJEkSpktSCcMEPwdKUC/WEkc8XcWubTvRQDUS9pXQ6hQP10QoXnx4plbzi29V9aVGkWCEENGlZRS2TY0ikZCdgJAYEPUIOwuZkBopEkZC3ZM3akBCnxoMRHdmnX2toVEQn9Ds">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      /* Style for the "Go to Top" icon */
+      #goTopBtn {
+          display: none; /* Hidden by default */
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #e0d146;
+          color: white;
+          border: none;
+          border-radius: 15%;
+          padding: 15px;
+          cursor: pointer;
+          font-size: 24px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          z-index: 1000;
+      }
+
+      #goTopBtn:hover {
+          background-color:  #FFA500;
+      }
+
+      /* Optional: Add a smooth transition effect */
+      #goTopBtn {
+          transition: background-color 0.3s, transform 0.3s;
+      }
+
+      #goTopBtn:hover {
+          transform: scale(1.1);
+      }
+  </style>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+      }
+  
+      /* Section container */
+      #cousins-channel {
+        padding: 40px;
+        background-color: #ffffff;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 40px 40px;
+        
+       
+        transition: transform 0.3s ease-in-out;
+      }
+  
+      #cousins-channel:hover {
+        transform: translateY(-5px);
+      }
+  
+      h2 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+  
+      p {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+  
+      /* Button */
+      .cta-button {
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: white;
+        background-color: #007BFF;
+        padding: 12px 25px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+      }
+  
+      .cta-button:hover {
+        background-color: #0056b3;
+      }
+  
+      .cta-button:active {
+        background-color: #003d80;
+      }
+  
+      /* Footer text */
+      .footer-text {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #999;
+      }
+  
+      /* Media Query for smaller screens */
+      @media (max-width: 768px) {
+        #cousins-channel {
+          width: 90%;
+        }
+  
+        h2 {
+          font-size: 1.6rem;
+        }
+  
+        p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  
+<style>
+  #projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Centers text inside the section */
+  padding: 40px 0; /* Optional: adds space around the section */
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px; /* Optional: limits the max width of the grid */
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.project-card h3 {
+  margin-top: 15px;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.project-card a:hover {
+  background-color: #0056b3;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+</style>
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+<header>
+  <nav id="navbar">
+      <div class="logo">
+        <font size="6" color="EAE2C6"><b> HARSH</b></font>
+      </div>
+      <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#project-section">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Hamburger menu for mobile -->
+      <div class="hamburger" id="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+      </div>
+  </nav>
+</header>
+
+
+    <!-- Home Section -->
+<section id="home">
+  <div class="home-content">
+      <h1>Welcome to My Creative Space! 🚀</h1>
+      <p>Designing the future, one line of code at a time. Let's create something amazing!</p>
+      <a href="#about" class="cta-button">Get Started</a>
+  </div>
+</section>
+
+
+    <!-- About Section -->
+<section id="about">
+  <div class="about-content">
+      <div class="about-text">
+          <h2>About Me</h2>
+          <p>	Hi,i am Harsh
+            I am hails from the historical
+            city of Ayodhya but currently
+            resides in the bustling metropolis of Delhi.
+            With a deep passion for cricket, he excels both on and
+            off the field, showcasing his dedication and energy in every game</p>
+          
+      </div>
+      <div class="about-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqteAS5D2KlOdutK1IPrPrNaUD6LsQmk11fQ&s" >
+      </div>
+      
+  </div>
+</section>
+
+
+   <!-- Skills Section -->
+<section id="skills">
+  <div class="skills-content">
+      <h2>My Skills</h2>
+      
+
+      <div class="skill">
+          <h3>HTML</h3>
+          <div class="progress-bar">
+              <div class="progress html"></div>
+          </div>
+      </div>
+
+      <div class="skill">
+          <h3>CSS</h3>
+          <div class="progress-bar">
+              <div class="progress css"></div>
+          </div>
+      </div>
+
+      <div class="skill">
+          <h3>QBASIC</h3>
+          <div class="progress-bar">
+              <div class="progress qbasic"></div>
+          </div>
+      </div>
+
+      <div class="skill">
+          <h3>python</h3>
+          <div class="progress-bar">
+              <div class="progress python"></div>
+          </div>
+      </div>
+  </div>
+</section>
+<section id="project-section">
+  <h2>My Projects</h2>
+  <div class="projects-container">
+    
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="project-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuGVRzP-WB6PniBvAvttVSF1I8HawSq1hjBg&s" alt="Project 1">
+      </div>
+      <div class="project-info">
+        <h3>Project 1</h3>
+        <h6>Guess the Number</h6>
+        
+        <div class="project-buttons">
+          <a href="https://harshkumar555.github.io/g1/" class="btn" target="_blank">Live Demo</a>
+          <a href="https://github.com/harshkumar555/g1" class="btn" target="_blank">Code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="project-image">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQ0ODQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhUdFhUkHCgsGBomGxUVIzItJyk3LjowGB8/RDYsNzQ5LisBCgoKDg0OFRAPFS0lHRkvMSsrNy03LSs3LTU3MisrKysrLi03NzUtKy4rKy03MCszMS0tKysrKy0rNysuKy0tK//AABEIAKMBNgMBIgACEQEDEQH/xAAcAAEAAwADAQEAAAAAAAAAAAAAAQYHBAUIAwL/xABHEAACAgADAwQMDAQFBQAAAAAAAQIDBAURBhIhBxMxQTVRUlVhcXWBkZOxsxQVFhdjdJKUoaLS4XKC0fAiMjNCVCMkJWLB/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAEDBAUCBv/EACYRAQACAgEEAgEFAQAAAAAAAAABAgMRMQQSIUEFE1EiMmFxsZH/2gAMAwEAAhEDEQA/ANjABmXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADpdp9qMHlVSsxc3rPVVU1pSuua6d2Oq4cVxbS4riUafLPRq93LrmupyxEIvTwrdftKPym4+zEZzjd+TcaJrDVR6oVwitUvHJyl/MdJh8tlOKlKW7rxS01ehfXHGvKqbzvw1H56Ku9tv3qP6B89FXe2371H9BmfxT9J+T9x8U/Sfk/cnsqjus0z56Ku9tv3qP6B89FXe2371H9BmfxT9J+T9x8U/Sfk/cdlTus0z56Ku9tv3qP6B89FXe2371H9BmfxT9J+T9x8U/Sfk/cdlTus0z56Ku9tv3qP6D64flmwzklbgMRCD6ZV3V2yX8rUfaZd8U/Sfk/c42MwUqtHrvRfDXTTR+FDsqd0vTuT5rh8dRDEYW2NtM9dJLVNNdKknxjJdaZzTFOQ3MJwx+Kwur5q7CvEOOvBW1zhFNLwxsaf8Me0bWU3r2zpZWdwAA8vQAAAAAAEASAAAAAAAAAAAAAAEASQCQAAAAAAAAPNO3vZjM/rdvtPvHoXiR8NvezGZ/W7fafePQvEjV6hR7SACAAAAAADiZp/oy8cfacs4maf6MvHH2iBYuRPsxPyfiPe0m7mE8ifZifk/Ee9pN2KsvKynAACt7AAAAAAAgCQQSABBIAAAAAAAAAAAAAAAAEEgAQSQSB5p297MZl9bt9p9qpqUU1xWiPjt72YzL63b7TpXOSb3ZNeJtGqI8Qz+1iBXefn3c/tSHPz7uf2pDRtYgV3n593P7THPz7uf2pDRtYgV3n593P7Uhz8+7n9qQ0bWI4WbTSr3euTWi8TOq5+fdz+1I/EpN8W23229WTo2vnIn2Yn5PxHvaDdzCORPsxPyfife0m7lGXlbTgABW9gAAAAAQSAIJAAgkgASAAAAAAAIAAEgIJAAEBCQCAlIAA807e9mMy+t2+0uexPJ9h7MPXiswjK2d0Y2V4felXCutrWLnpo3Jrjp0cSl7frXN8zXbxVyNxyXGV4nCYe6pp12UwlHTq4aNPwp6rzGr1DP7VzO+TrLsRXJYev4Jel/07K5Tde91b0G9GvFo/CYzi8NZRbZTbHdsqnKuyPanF6Pxo9LnnvbHGV4jM8bdU0653tQkuiSjFQ1Xgbi35xUl3/J9sVDMYyxOKclhYzcIVwbhK+a/wA2suqK6OHFvXo0433F7AZRbXuLC8y9NI2U2WRsi+3q297zpnG5KsXXZlNVcWt/D23wtj1pyslZF+eM16GXAiZHnnafI7Mtxc8NY99JKdVmmisqlruvTqfBp+FM42UZdZi766K9E5ttyfFQguMm/wC+nQt3K9jK7Mwqqg05YfDqNrXVOUnJRfhS0f8AMdTyf4iFeYJTaXO02VQb7tuMkvOosr6jJamG968xC3BSt8la24mVxwmyGX1wUXTzstP8VlspOUn5mkvMir7YbLQwsPhGG3uZUlGyuTcub1eiafS1rouPb9GjHRbbYmFeX3qTWtqjVBdcptro8STfmPmOj6zqPvr+qZ7p1MO/1XS4fpt+mI1Hh03In2Yn5PxHvaTdzCORPsxPyfiPe0G7H02XlwKcJABW9gIJAAAIQSQAlIAAAAAAABBICAAAAAEgAAEEgIAAAIJAHmnbzsxmX1u32n42d2rx2W6rD2RdUnvSoujv1OXbS1Ti/E/SfvbzsxmX1u32nfbG8njxtMMVi7Z002Leprq3edsh1Scmnup9XDV+A1xxCj263OuUDMsZXKlyqw9U1uzWHhKMpxfSnJybS8WhVTVM75LKealLAXWq6K1jVfKM67PBvJJxfh4oy2yEoylGScZQlKE4taSjJPRprtpoRoc3Jc5xOAt57C2uubW7Nab0LI9qUetfj4iy4vlNzSytwisNTJrR21VS314t6TS9Bw9itjrc1lOcpujC1S3Z2pb05z013YLt6Nat9Gq6S7YvkrwMq2qcRia7UuE5uu2Df/tHdXDxNCdDI7JynKUpylKUpOUpSblKUm9W2+tkJtNNNppppp6NNdGjOZnOV3YHEWYa+KVlbXFcYzi+MZRfWmj44HCWYi2FNUd6yyW7FdC7bbfUktX5hMxEbngiJmdQ77CbcY+uG7LmbtFop2wlv+dqS1OnzXNcRjJqeInvNcIxS3YQXXur+2XfCbA4ZQXPXXTsa4uDjXBPwLR/iyubUbLzwGlkJu3Dye7vNJTrl1KXb17f9vl9N1HRTl1iiItP8a/46GfD1cY95Jmax/P+u85E+zE/J+J97SbuYRyJ9mJ+T8R72k3c25f3MlOAAFb0AAAAABBIAEEgJQCQBBIAAABAAAAAAAAAAAAAAAADzPt/r8b5np0/CrtPGbtlVlc8Nh5VaOqVFTr06NzcWn4GF7edmMy+t2+05+ym3mJy2HMSrjisMnrCuU3XOrXi92ej4dL0a9Bq14hR7bcef9t7K5Zrj3W04fCJLVdG+opT/OpFmzvlRxF1cq8Jh1hXJaO+VvO2xT6d1bqUX4eJn34+Pi2TEDb+SycHk9CjpvRsxMbNOlT56TWv8rj+BbTz/sttRicrslKndsqs052izXcm10NP/bLw/gy34vlZm69KMBGFrX+a292Vwf8ACore9KImBwOWKdbx+HjHTnI4Rc4106OyTgn+b0nU8nkorMP8XTLD2qGvdb0H6d1S/E6DHYy3E3WX3zdltst6c30t/wDxaJLzH4ounXONlcnCcJKUJR6YyRXnxfZitj3zGlmHJ9eSt9cS286TbScFl2J39OMYxjr1zc1u/j7Cu4TlBmoaXYVTml/nrt3Iyf8AC09PSdBtBtDfj3HfUa6oPWFUG2k9Olv/AHPpPnul+Kz1zVm8ais75/x2+o+RwzimKTuZjSz8ifZifk/Ee9oN2MJ5EuzE/J+J97Qbsd/L+5xacAAK3oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHmnbzsxmX1u32nBy3JsTitXVBbi4Oyb3Ya9rXrfiObt8/wDzGZ/W7faXnA0RqpqrgtIwhFL0cfxNccQo9qT8j8Z3WH9ZP9I+R+M7rD+sn+kvoGxQvkfjO6w/rJ/pInshjUm1zMtOqNj1fpii/AbGTX0zrlKFkXCcXpKMlo0z8JNtJJttpJJatt9Gi7ZbdvqI/wDb2pJSe/XJ9bitGvRx9JxeT/Dwsx6c0nzVNlsE+71jFPzKTK82WMWO15jiHvFj+y9afl+sLsPjrIb0uZpbWqhZOW/59E9PSdPmuU4jBzUL4brfGEk96ua691/2zZTottsNCzL73JLWpRtg+uM010eNNrznB6b5fLbNWt4jVp1/Ts5/jMdcUzSZ3Hn+3T8iXZifk/E+9oN2MJ5EuzE/J+J97QbsdvL+5yKcAAK3oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHmrb+LWc5kmtH8Km9PA0mvwaO7yHaSidUK77FVbXFR3pvSFiS0T3up9vUuPKbyf24+z4dgFB4ncUb6JNQ+EKK0jKMnwU0ko8eDSXFaccxnsZnCbTyzGartUuS9K4M01tEwpmJiVz+N8H/AMrD+uh/UfG+D/5WH9dX/UpfyPzfvZjfUTHyOzfvZjfu8yfH5R5XT43wf/Kw/rq/6kTznBpNvFUcO1bGT9C6SmfI7N+9mN9RMfI7N+9mN9RMePyPxtNnCxlsebTVNSahrwcm9NXp1dCOFlGY2YS+u+vRuDesW9FOD4ST/vp0Ow+R2b97Mb6iY+R2b97Mb6iZForas1niU1mazExzC8YTbDL7IKUrualp/ihZCSlF+NJp+ZlY2v2qhi4fB8MpczvKVlkk4uzR6pJdKWuj48eHp675HZv3sxvqJn0w+xGc2SUY5biU2+myCpgvHKTSOfh+M6fFk+yJmdcb9NuX5DNkp2Trzzp3/IjFvN7Gk9I5fiNX1LW6jQ3UqHJ1sYsnom7ZRsxmI3XfKGrrrjHXdhDtpatt9bfgRbzVedz4ZqxqAAHh6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEgAAAAAAAAAAABBIAAAAAAAAAEAkBKCQAgAAAAAAAAAAEEgAAAAAAAAAAAB//2Q==" alt="Project 2">
+      </div>
+      <div class="project-info">
+        <h3>Project 2</h3>
+        <h6>Calaulator</h6>
+        <div class="project-buttons">
+          <a href="https://harshkumar555.github.io/c/" class="btn" target="_blank">Live Demo</a>
+          <a href="https://github.com/harshkumar555/c" class="btn" target="_blank">Code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="project-image">
+        <img src="data:image/jpeg;base64,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" alt="Project 3">
+      </div>
+      <div class="project-info">
+        <h3>Project 3</h3>
+        <h6>TODO List</h6>
+        <div class="project-buttons">
+          <a href="https://harshkumar555.github.io/todo/" class="btn" target="_blank">Live Demo</a>
+          <a href="https://github.com/harshkumar555/todo" class="btn" target="_blank">Code</a>
+        </div>
+      </div>
+    </div>
+    <!-- Project 4 -->
+    <div class="project-card">
+      <div class="project-image">
+        <img src="data:image/png;base64,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">
+   </div>
+      <div class="project-info">
+        <h3>Project 4</h3>
+        <h6>Tic-Tac-Toe</h6>
+        <div class="project-buttons">
+          <a href="https://harshkumar555.github.io/tic-Tac-Toe/" class="btn" target="_blank">Live Demo</a>
+          <a href="https://github.com/harshkumar555/tic-Tac-Toe" class="btn" target="_blank">Code</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image">
+        <img src="data:image/png;base64,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">
+    <div class="project-info">
+      <h3>Project 5</h3>
+      <h6>clock</h6>
+      <div class="project-buttons">
+        <a href="https://harshkumar555.github.io/clock/" class="btn" target="_blank">Live Demo</a>
+        <a href="https://github.com/harshkumar555/clock" class="btn" target="_blank">Code</a>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+
+    
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Me 📬</h2>
+      <p>If you want to get in touch, feel free to drop me a message below!</p>
+      <form id="contact-form" onsubmit="sendMessage(event)" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          
+          <input type="number" name="number"  placeholder="Your phone number" required>
+          <button type="submit">Send Message</button>
+      </form>
+    </section>
+    
+    <script>
+      function sendMessage(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        // Get the form values
+        const name = document.querySelector('input[name="name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const number = document.querySelector('input[name="number"]').value;
+    
+        // Check if the required fields are filled
+        if (name && email && number) {
+          // Open WhatsApp with the prefilled message
+          const message = `Hello, my name is ${name}. You can reach me at ${email} or ${number}.`;
+          const whatsappUrl = `https://api.whatsapp.com/send?phone=8264073693&text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, '_blank');
+        } else {
+          alert("Please fill in all required fields before sending.");
+        }
+      }
+    </script>
+    
+    
+    
+    
+<section id="cousins-channel">
+  <h2>Visit My Cousin's Channel</h2>
+  <p>Samriddhi and Swastik are 5-year-old
+    children who have their own YouTube channel.
+    Despite their young age, they have
+    already started creating content for their audience,
+    showcasing their creativity and talents</p>
+  <a href="https://www.youtube.com/@vivekanand1168" target="_blank" class="cta-button">
+    Check Out the Channel
+  </a>
+  <p class="footer-text">Don't forget to like, comment, and subscribe for more awesome content!</p>
+</section>
+    <!-- About YouTube Channel Section -->
+<section id="youtube-channel">
+  <div class="channel-content">
+      <h2>About My YouTube Channel 🎥</h2>
+      <p>My youtube channel is a YouTube channel dedicated to cricket enthusiasts, offering exciting content that highlights the latest matches, analysis, and updates from the world of cricket</p>
+      <a href="https://www.youtube.com/@CricketwithHarshj2i" class="cta-button">Visit My Channel</a>
+  </div>
+</section>
+
+<!-- Complain Box Section -->
+<section id="complain-box">
+  <h2>Complain Box 😤</h2>
+  <textarea id="complain-text" placeholder="Got a complaint? Tell me here!"></textarea>
+  <button onclick="submitComplain()" required>Submit Your Complaint</button>
+</section>
+    <!-- The "Go to Top" Icon -->
+    <button id="goTopBtn" onclick="topFunction()">
+      <i class="fas fa-arrow-up"></i> <!-- Font Awesome arrow icon -->
+  </button>
+    <!-- Social Media Icons -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy;copyright 2025. All rights reserved.</p>
+        </div>
+        <div class="social-media">
+            <a href="tel:+91 8264073693" class="social-icon"><i class="fa-solid fa-phone-volume"></i></a>
+            <a href="https://www.facebook.com/janmenjay.tiwari" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+<a href="https://github.com/harshkumar555" class="social-icon"><i class="fa-brands fa-github"></i></a>
+               </div>
+        <div class="sub-footer">
+            <p>Designed with 💖 by Me!</p>
+        </div>
+    </footer>
+
+    <script >// Complain Box
+      function submitComplain() {
+          alert('Your complaint has been submitted successfully!');
+      }
+      
+      
+      // JavaScript for toggling the mobile menu
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      
+      hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+      });
+
+    </script>
+    <script>
+      // Get the button
+      let mybutton = document.getElementById("goTopBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              mybutton.style.display = "block";
+          } else {
+              mybutton.style.display = "none";
+          }
+      };
+
+      // When the user clicks on the icon, scroll to the top of the document
+      function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+  </script>
+
+</body>
+</html>
